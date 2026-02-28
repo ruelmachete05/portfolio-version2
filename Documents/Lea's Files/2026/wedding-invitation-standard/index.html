@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel & Sophia | Garden Wedding</title>
+
+    <!-- Social Media Preview -->
+    <meta property="og:title" content="Daniel & Sophia's Garden Wedding">
+    <meta property="og:description" content="Amidst blooming flowers and golden sunlight, two hearts choose forever.">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/dtxbngnr7/image/upload/v1772298099/wedding-invitation-premiun-cover_bwzc3i.png">
+    <meta property="og:url" content="https://maria-leaa.github.io/wedding-invitation-premium/">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="petal-container"></div>
+
+    <!-- Entrance Overlay -->
+    <!-- <div id="entrance-overlay">
+        <div class="overlay-content">
+            <div class="luxury-border">
+                <p class="tagline">The Wedding of</p>
+                <h1>Daniel & Sophia</h1>
+                <div class="divider"><span>🌿</span></div>
+                <p class="date-text">JUNE 14, 2026</p>
+                <button id="enter-btn">Open Invitation</button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Enhanced Entrance Overlay -->
+    <div id="entrance-overlay">
+        <!-- This provides the blurred garden peek behind the card -->
+        <div class="overlay-background-peek"></div>
+
+        <div class="overlay-content">
+            <div class="luxury-card" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="card-inner-border">
+                    <p class="tagline">The Wedding of</p>
+
+                    <div class="names-wrap">
+                        <span class="name">Daniel</span>
+                        <span class="ampersand">&</span>
+                        <span class="name">Sophia</span>
+                    </div>
+
+                    <div class="divider-wrap">
+                        <div class="line"></div>
+                        <span class="leaf-icon">🌿</span>
+                        <div class="line"></div>
+                    </div>
+
+                    <p class="date-display">JUNE 14, 2026</p>
+                    <p class="location-display">TAGAYTAY CITY</p>
+
+                    <button id="enter-btn">Open Invitation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control" onclick="toggleMusic()">
+        <span id="music-icon">🔇</span>
+        <audio id="bg-music" loop preload="auto">
+            <source
+                src="https://res.cloudinary.com/dtxbngnr7/video/upload/v1772294389/wedding-invitation-premium-song_wonlxw.mp3"
+                type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="2000">
+            <span class="sub-title">A Garden Wedding Celebration</span>
+            <h1>Daniel & Sophia</h1>
+            <p class="hero-date-main">June 14, 2026</p>
+            <p class="hero-location">Tagaytay City • Philippines</p>
+            <div id="countdown" class="countdown"></div>
+        </div>
+    </header>
+
+    <!-- Welcome Message -->
+    <section class="section welcome">
+        <div class="container narrow">
+            <h2 data-aos="fade-up">Welcome Message</h2>
+            <div class="quote-box" data-aos="zoom-in">
+                <p class="script-text">"Amidst blooming flowers and golden sunlight,<br>two hearts choose forever."</p>
+                <div class="small-divider"></div>
+                <p>With joyful hearts and love in full bloom, we invite you to celebrate our wedding day as we begin our
+                    beautiful journey together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Details -->
+    <section class="section details">
+        <div class="container">
+            <h2 data-aos="fade-up">Wedding Details</h2>
+            <div class="details-grid">
+                <div class="glass-card" data-aos="fade-right">
+                    <span class="card-icon">💍</span>
+                    <h3>Ceremony</h3>
+                    <p class="card-date">June 14, 2026 • 3:30 PM</p>
+                    <p class="card-venue"><strong>Rosewood Garden Pavilion</strong><br>Greenfield Estate, Tagaytay City
+                    </p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-outline">View Map</a>
+                </div>
+                <div class="glass-card" data-aos="fade-left">
+                    <span class="card-icon">🥂</span>
+                    <h3>Reception</h3>
+                    <p class="card-date">June 14, 2026 • 5:30 PM</p>
+                    <p class="card-venue"><strong>The Glass Garden Hall</strong><br>Greenfield Estate, Tagaytay City</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-outline">View Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section timeline-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Wedding Timeline</h2>
+            <div class="garden-timeline">
+                <div class="t-item" data-aos="fade-up"><span>3:00 PM</span>
+                    <p>Guest Arrival</p>
+                </div>
+                <div class="t-item" data-aos="fade-up"><span>3:30 PM</span>
+                    <p>Wedding Ceremony</p>
+                </div>
+                <div class="t-item" data-aos="fade-up"><span>4:30 PM</span>
+                    <p>Photo Session</p>
+                </div>
+                <div class="t-item" data-aos="fade-up"><span>5:30 PM</span>
+                    <p>Reception Entrance</p>
+                </div>
+                <div class="t-item" data-aos="fade-up"><span>6:30 PM</span>
+                    <p>Dinner</p>
+                </div>
+                <div class="t-item" data-aos="fade-up"><span>8:00 PM</span>
+                    <p>First Dance</p>
+                </div>
+                <div class="t-item" data-aos="fade-up"><span>10:30 PM</span>
+                    <p>Closing Remarks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="section dress-code">
+        <div class="container">
+            <h2 data-aos="fade-up">Dress Code</h2>
+            <p class="label-main" data-aos="fade-up">Garden Formal Attire</p>
+            <div class="dress-grid-premium">
+                <div class="dress-card-v2" data-aos="fade-up">
+                    <div class="card-header"><span class="swatch-mini" style="background: #7d9d85;"></span>
+                        <h3>Bridesmaids</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="color-name">Sage Green</p>
+                        <p class="desc">Floor-length chiffon or satin with nude/gold heels.</p>
+                    </div>
+                </div>
+                <div class="dress-card-v2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header"><span class="swatch-mini" style="background: #e6dfcc;"></span>
+                        <h3>Groomsmen</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="color-name">Beige & Light Tan</p>
+                        <p class="desc">Light tan suit with a Sage bowtie and brown shoes.</p>
+                    </div>
+                </div>
+                <div class="dress-card-v2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-header"><span class="swatch-mini" style="background: #dbb3b3;"></span>
+                        <h3>Ninang</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="color-name">Champagne / Rose</p>
+                        <p class="desc">Long gown or modern Filipiniana in pastel tones.</p>
+                    </div>
+                </div>
+                <div class="dress-card-v2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header"><span class="swatch-mini" style="background: #ececec;"></span>
+                        <h3>Ninong</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="color-name">Light Gray / Cream</p>
+                        <p class="desc">Formal Suit or Barong with neutral trousers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guests-guide-premium" data-aos="zoom-in">
+                <div class="flower-icon-wrap">🌸</div>
+                <h3>Honored Guests</h3>
+                <div class="guide-content">
+                    <div class="guide-box"><strong>Ladies</strong>
+                        <p>Floral or pastel dresses, airy fabrics.</p>
+                    </div>
+                    <div class="guide-box"><strong>Gentlemen</strong>
+                        <p>Polo or long sleeves with light suits.</p>
+                    </div>
+                </div>
+                <div class="palette-premium">
+                    <div class="p-circle" style="background:#7d9d85"></div>
+                    <div class="p-circle" style="background:#f4dada"></div>
+                    <div class="p-circle" style="background:#fdfcf0"></div>
+                    <div class="p-circle" style="background:#a3b8c8"></div>
+                    <div class="p-circle" style="background:#e6dfcc"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story -->
+    <section class="section story">
+        <div class="container">
+            <h2 data-aos="fade-up">Our Love Story</h2>
+            <div class="story-card" data-aos="fade-up">
+                <p>Daniel and Sophia first met during a university garden festival, where a simple conversation
+                    blossomed into a lasting friendship. Over time, shared dreams and adventures nurtured a love that
+                    grew stronger with every season.</p>
+                <p>Today, surrounded by nature and loved ones, they celebrate the beginning of their forever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8.5 Moments of Love (Couple's Gallery) -->
+
+    <section class="section gallery-premium" id="gallery">
+        <div class="container">
+            <h2 data-aos="fade-up">Moments of Love</h2>
+            <p class="gallery-sub" data-aos="fade-up">A collection of our favorite memories.</p>
+
+            <div class="magazine-grid">
+                <!-- 1. Feature Tall -->
+                <div class="mag-item tall" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800" alt="Couple 1">
+                    <div class="mag-caption">The Proposal</div>
+                </div>
+
+                <!-- 2. Feature Wide -->
+                <div class="mag-item wide" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200" alt="Landscape">
+                    <div class="mag-caption">Our Favorite Place</div>
+                </div>
+
+                <!-- 3. Square -->
+                <div class="mag-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600" alt="Couple 2">
+                </div>
+
+                <!-- 4. Square -->
+                <div class="mag-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600" alt="Couple 3">
+                </div>
+
+                <!-- 5. Feature Tall -->
+                <div class="mag-item tall" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=800" alt="Detail 1">
+                </div>
+
+                <!-- 6. Square -->
+                <div class="mag-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=600" alt="Detail 2">
+                </div>
+
+                <!-- 7. Square -->
+                <div class="mag-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=600" alt="Detail 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Notes -->
+    <section class="section final-details">
+        <div class="container">
+            <div class="premium-note-grid">
+                <div class="note-card-v2" data-aos="fade-right">
+                    <div class="note-icon">📸</div>
+                    <h3>Unplugged Ceremony</h3>
+                    <div class="note-divider"></div>
+                    <p>We kindly invite everyone to be fully present. Please keep phones silent as we capture moments
+                        through our official photographers.</p>
+                </div>
+                <div class="note-card-v2" data-aos="fade-left">
+                    <div class="note-icon">🎁</div>
+                    <h3>Gift Guide</h3>
+                    <div class="note-divider"></div>
+                    <p>Your presence is the greatest gift. However, should you wish to bless us further, a monetary gift
+                        would be sincerely appreciated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="boutique-footer">
+        <div class="footer-seal" data-aos="zoom-in">
+            <p class="see-you">We can't wait to celebrate with you!</p>
+            <h2 class="footer-names">Daniel & Sophia</h2>
+            <div class="signature-line"></div>
+            <p class="footer-meta">06 • 14 • 2026</p>
+            <p class="hashtag">#DanielAndSophiaInBloom</p>
+            <div class="copyright-area">
+                <p>© 2026 Daniel & Sophia. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Guide (Back to Top Arrow) -->
+    <button id="backToTop" title="Return to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
