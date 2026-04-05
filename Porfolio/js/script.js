@@ -123,24 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = document.getElementById('full-cert-img');
     const closeModal = document.querySelector('.close-modal');
     
-    // Select both certificates and gallery items
     const lightboxTriggers = document.querySelectorAll('.cert-item, .gallery-item');
 
     lightboxTriggers.forEach(item => {
-        item.style.cursor = 'pointer'; // Ensure cursor shows it's clickable
+        item.style.cursor = 'pointer';
         item.onclick = () => {
             modal.style.display = 'flex';
-            // Use the data-img attribute we added in the HTML
             modalImg.src = item.dataset.img;
         };
     });
 
-    // Close with X button
     closeModal.onclick = () => {
         modal.style.display = 'none';
     };
 
-    // Close when clicking the dark background
     window.onclick = (e) => {
         if (e.target == modal) {
             modal.style.display = 'none';
@@ -149,4 +145,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Scroll Top
     document.getElementById('toTop').onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+    // 8. WORKING SEND MESSAGE FORM (AJAX)
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const btn = document.getElementById('submit-btn');
+
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        btn.innerHTML = "Sending... <i class='fas fa-spinner fa-spin'></i>";
+        btn.disabled = true;
+
+        const data = new FormData(event.target);
+        
+        fetch(event.target.action, {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                status.style.display = "block";
+                status.style.color = "var(--primary)";
+                status.textContent = "Thanks! Your message has been sent.";
+                form.reset();
+                btn.innerHTML = "Message Sent! <i class='fas fa-check'></i>";
+            } else {
+                status.textContent = "Oops! Error submitting form.";
+                status.style.display = "block";
+                status.style.color = "red";
+                btn.disabled = false;
+                btn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
+            }
+        }).catch(error => {
+            status.style.display = "block";
+            status.style.color = "red";
+            status.textContent = "Communication error.";
+            btn.disabled = false;
+        });
+    });
 });
