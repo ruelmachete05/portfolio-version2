@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     type();
 
-    // 3. Navbar & Mobile Menu Logic
+    // 3. Navbar & Sticky Logic
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const navbar = document.querySelector('.navbar');
@@ -80,49 +80,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const visibleSlides = Math.round(track.parentElement.offsetWidth / slides[0].offsetWidth);
         const maxIndex = slides.length - visibleSlides;
         
-        if (index > maxIndex) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = Math.max(0, maxIndex);
-        } else {
-            currentIndex = index;
-        }
+        if (index > maxIndex) currentIndex = 0;
+        else if (index < 0) currentIndex = Math.max(0, maxIndex);
+        else currentIndex = index;
 
         track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     }
 
-    nextBtn.onclick = () => {
-        stopAutoSlide();
-        moveToIndex(currentIndex + 1);
-        startAutoSlide();
-    };
+    nextBtn.onclick = () => { stopAutoSlide(); moveToIndex(currentIndex + 1); startAutoSlide(); };
+    prevBtn.onclick = () => { stopAutoSlide(); moveToIndex(currentIndex - 1); startAutoSlide(); };
 
-    prevBtn.onclick = () => {
-        stopAutoSlide();
-        moveToIndex(currentIndex - 1);
-        startAutoSlide();
-    };
-
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            moveToIndex(currentIndex + 1);
-        }, 4000);
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
+    function startAutoSlide() { autoSlideInterval = setInterval(() => moveToIndex(currentIndex + 1), 4000); }
+    function stopAutoSlide() { clearInterval(autoSlideInterval); }
 
     startAutoSlide();
     track.addEventListener('mouseenter', stopAutoSlide);
     track.addEventListener('mouseleave', startAutoSlide);
     window.addEventListener('resize', () => moveToIndex(currentIndex));
 
-    // 6. SHARED LIGHTBOX LOGIC (Gallery & Certs)
+    // 6. SHARED LIGHTBOX LOGIC
     const modal = document.getElementById('cert-modal');
     const modalImg = document.getElementById('full-cert-img');
     const closeModal = document.querySelector('.close-modal');
-    
     const lightboxTriggers = document.querySelectorAll('.cert-item, .gallery-item');
 
     lightboxTriggers.forEach(item => {
@@ -133,15 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
-    closeModal.onclick = () => {
-        modal.style.display = 'none';
-    };
-
-    window.onclick = (e) => {
-        if (e.target == modal) {
-            modal.style.display = 'none';
-        }
-    };
+    closeModal.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
 
     // 7. Scroll Top
     document.getElementById('toTop').onclick = () => window.scrollTo({top:0, behavior:'smooth'});
@@ -161,24 +133,22 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(event.target.action, {
             method: 'POST',
             body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
         }).then(response => {
             if (response.ok) {
                 status.style.display = "block";
                 status.style.color = "var(--primary)";
-                status.textContent = "Thanks! Your message has been sent.";
+                status.textContent = "Success! Message sent to Ruel.";
                 form.reset();
-                btn.innerHTML = "Message Sent! <i class='fas fa-check'></i>";
+                btn.innerHTML = "Sent! <i class='fas fa-check'></i>";
             } else {
-                status.textContent = "Oops! Error submitting form.";
+                status.textContent = "Oops! Submission error.";
                 status.style.display = "block";
                 status.style.color = "red";
                 btn.disabled = false;
                 btn.innerHTML = "Send Message <i class='fas fa-paper-plane'></i>";
             }
-        }).catch(error => {
+        }).catch(() => {
             status.style.display = "block";
             status.style.color = "red";
             status.textContent = "Communication error.";
