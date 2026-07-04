@@ -53,3 +53,8 @@ section { padding: 100px 0; position: relative; }
     background: var(--primary); border-radius: 50%; display: none; 
     align-items: center; justify-content: center; color: #000; border: none; z-index: 999; cursor: pointer;
 }
+
+/* RESPONSIVE SCALING FOR VIEWPORT SPACING */
+@media (max-width: 768px) {
+    section { padding: 60px 0; }
+}

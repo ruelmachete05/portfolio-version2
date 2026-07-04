@@ -29,7 +29,7 @@
     <nav class="navbar">
         <div class="container nav-flex">
             <!-- Modern Tech Logo -->
-            <a href="#" class="logo"><span></span> RUEL MACHETE<span></span></a>
+            <a href="#" class="logo">RUEL MACHETE<span></span></a>
             
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -39,7 +39,7 @@
                 <li><a href="#certs">Certificates</a></li>
                 <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
             </ul>
-            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <div class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
 
@@ -48,10 +48,10 @@
         <div class="mesh-bg"></div>
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge reveal">Available for Junior Dev / QA Roles</span> <!-- Added context label -->
+                <span class="badge reveal">Available for QA / Data Analyst Roles</span>
                 <h1 class="reveal delay-1">Hi, I'm Ruel.</h1>
                 <h2 class="reveal delay-2"><span class="typing"></span></h2>
-                <p class="reveal delay-3">BSIT Magna Cum Laude candidate focused on Quality Assurance, Data Precision, and Technical Leadership.</p>
+                <p class="reveal delay-3">BSIT Magna Cum Laude Graduate focused on Quality Assurance, Data Precision, and Technical Leadership.</p>
                 <div class="hero-actions reveal delay-4">
                     <a href="#projects" class="btn primary">View Work</a>
                     <!-- PDF DOWNLOAD LINK -->
@@ -76,11 +76,11 @@
                 </div>
                 <div class="about-text reveal delay-1">
                     <h2 class="section-title">A Bit About <span>Me</span></h2>
-                    <p class="desc">I'm a 4th-year BSIT student finishing my OJT at La Consolacion University. My journey is defined by a blend of academic excellence and active leadership.</p>
+                    <p class="desc">I'm a BSIT Magna Cum Laude graduate from La Consolacion University. My professional foundation is built on a blend of analytical rigor, academic excellence, and active technical leadership.</p>
                     
                     <div class="info-tags">
-                        <div class="tag"><i class="fas fa-graduation-cap"></i> Magna Cum Laude Candidate</div>
-                        <div class="tag"><i class="fas fa-award"></i> Student Leader</div>
+                        <div class="tag"><i class="fas fa-graduation-cap"></i> Magna Cum Laude Graduate</div>
+                        <div class="tag"><i class="fas fa-award"></i> Former JPSSITE President</div> <!-- Updated word student to organization acronym -->
                         <div class="tag"><i class="fas fa-search"></i> QA Enthusiast</div>
                     </div>
 
@@ -90,37 +90,60 @@
                             <span>QA Testing</span><span>Data Analysis</span><span>Java</span><span>Python</span><span>Leadership</span>
                         </div>
                     </div>
+
+                    <!-- ADDED FOR SKILLS MATRIX -->
+                    <div class="skills-matrix">
+                        <div class="matrix-col">
+                            <h4><i class="fas fa-vial"></i> Quality Assurance</h4>
+                            <ul>
+                                <li>Manual & Regression Testing</li>
+                                <li>Bug Lifecycle & STLC</li>
+                                <li>API Validation (Postman)</li>
+                                <li>Agile Scrum Workflows</li>
+                            </ul>
+                        </div>
+                        <div class="matrix-col">
+                            <h4><i class="fas fa-chart-line"></i> Data Analytics</h4>
+                            <ul>
+                                <li>SQL Query Scripting</li>
+                                <li>Exploratory Data Analysis</li>
+                                <li>Data Cleaning & Preparation</li>
+                                <li>Reporting (Excel & Visuals)</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Professional Experience Section (New) -->
+    <!-- Professional Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Work <span>Experience</span></h2>
             <div class="timeline reveal">
                 <div class="timeline-item">
                     <div class="time-content">
-                        <span class="period">2024 - Present</span>
-                        <h3>IT Internship (OJT)</h3>
+                        <span class="period">2024</span>
+                        <h3>IT Intern (OJT)</h3>
                         <span class="company">La Consolacion University Philippines</span>
                         <ul>
-                            <li>Collaborating in an Agile Scrum environment to support QA testing.</li>
-                            <li>Managing data precision and technical documentation for institutional systems.</li>
-                            <li>Bridging the gap between administrative requirements and technical implementation.</li>
+                            <li>Collaborated in an Agile Scrum environment to support QA testing.</li>
+                            <li>Managed data precision and technical documentation for institutional systems.</li>
+                            <li>Bridged the gap between administrative requirements and technical implementation.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="time-content">
                         <span class="period">2023 - 2024</span>
-                        <h3>Student Body President</h3>
-                        <span class="company">Junior Philippine Student Society for IT Education</span>
+                        <h3>Chapter President</h3> <!-- Changed "Student Body President" to "Chapter President" -->
+                        <span class="company">Junior Philippine Student Society for Information Technology Education (JPSSITE)</span>
                         <ul>
-                            <li>Led a team of 20+ student leaders to organize technical seminars and workshops.</li>
+                            <li>Led a team of 20+ executive officers to organize technical seminars and workshops.</li> <!-- Changed "student leaders" to "executive officers" -->
                             <li>Reduced event coordination errors by 40% through centralized data tracking.</li>
-                            <li>Acted as primary Stakeholder Liaison for IT student concerns.</li>
+                            <li>Acted as primary Stakeholder Liaison for departmental academic and organizational concerns.</li> <!-- Changed "student concerns" to "academic and organizational concerns" -->
                         </ul>
                     </div>
                 </div>
@@ -135,8 +158,8 @@
             
             <div class="carousel-wrapper reveal">
                 <!-- Navigation Buttons -->
-                <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                <button class="nav-btn prev-btn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn next-btn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
 
                 <div class="carousel-container">
                     <div class="carousel-track">
@@ -210,53 +233,64 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Selected <span>Projects</span></h2>
+
+            <!-- ADDED INTERACTIVE FILTER BUTTONS -->
+            <div class="filter-buttons reveal">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="qa">QA Testing</button>
+                <button class="filter-btn" data-filter="data">Data Analytics</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+            </div>
+
             <div class="project-grid">
-                <!-- Project 1 -->
-                <div class="project-card reveal">
+                <!-- Project 1 (QA Focused) -->
+                <div class="project-card reveal" data-category="qa">
                     <div class="pj-img"><img src="assets/images/ruelUniversity.jpg" alt="Project 1"></div>
                     <div class="pj-body">
                         <div class="pj-tags"><span>Database</span><span>QA</span></div>
                         <h3>Ruel University Portal</h3>
-                        <p><strong>Problem:</strong> Manual enrollment caused long wait times and data errors.</p>
-                        <p><strong>Impact:</strong> Automated registration, reducing processing time by 90%.</p>
+                        <p><strong>Problem:</strong> Manual administrative workflows caused database discrepancies and delayed transaction processing.</p>
+                        <p><strong>Methodology:</strong> Developed structured database test plans, executing complete regression tests (120+ validations; 98% pass rate).</p>
+                        <p><strong>Impact:</strong> Automated registration and system inputs, improving overall operational processing speed by 90%.</p>
                         <div class="pj-links">
                             <a href="#" class="view-btn">Details</a>
                         </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card reveal delay-1">
+                <!-- Project 2 (Data Focused) -->
+                <div class="project-card reveal delay-1" data-category="data">
                     <div class="pj-img"><img src="assets/images/handwave.png" alt="Project 2"></div>
                     <div class="pj-body">
-                        <div class="pj-tags"><span>AI</span><span>Python</span><span>Figma</span></div>
+                        <div class="pj-tags"><span>AI</span><span>Python</span><span>Data</span></div>
                         <h3>Handwave</h3>
-                        <p><strong>Problem:</strong> Communication barriers for hearing-impaired students.</p>
-                        <p><strong>Role:</strong> Lead UI/UX. Optimized feedback loops for real-time camera recognition.</p>
+                        <p><strong>Problem:</strong> Communication barriers encountered by hearing-impaired users when interacting with standard interfaces.</p>
+                        <p><strong>Methodology:</strong> Managed translation dataset arrays. Conducted predictive validation and data-cleaning cycles in Python.</p>
+                        <p><strong>Impact:</strong> Achieved an initial prediction and response accessibility accuracy rating of 95% on primary test batches.</p>
                         <div class="pj-links">
                             <a href="#" class="view-btn">View Film</a>
                         </div>
                     </div>
                 </div>
-                <!-- Project 3 -->
-                <div class="project-card reveal delay-1">
+                <!-- Project 3 (Design Focused) -->
+                <div class="project-card reveal delay-1" data-category="design">
                     <div class="pj-img"><img src="assets/images/HandWave Mobile.png" alt="Project 3"></div>
                     <div class="pj-body">
                         <div class="pj-tags"><span>Mobile</span><span>UX</span></div>
                         <h3>Handwave Mobile</h3>
-                        <p><strong>Impact:</strong> Extended AI recognition to mobile devices for on-the-go accessibility.</p>
+                        <p><strong>Impact:</strong> Ported recognition data pipelines to clean, highly functional mobile UI prototypes for on-the-go accessibility.</p>
                         <div class="pj-links">
                             <a href="#" class="view-btn">Figma</a>
                         </div>
                     </div>
                 </div>
-                <!-- Project 4 -->
-                <div class="project-card reveal delay-1">
+                <!-- Project 4 (Design Focused) -->
+                <div class="project-card reveal delay-1" data-category="design">
                     <div class="pj-img"><img src="assets/images/EqualGround.png" alt="Project 5"></div>
                     <div class="pj-body">
                         <div class="pj-tags"><span>Frontend</span><span>Design</span></div>
                         <h3>EqualGround Web</h3>
-                        <p><strong>Goal:</strong> Promoting gender equality through resource awareness.</p>
-                        <p><strong>Result:</strong> Designed a responsive UI with a 95% user accessibility rating.</p>
+                        <p><strong>Goal:</strong> Promoting social gender equality through highly intuitive resources and targeted content awareness.</p>
+                        <p><strong>Result:</strong> Engineered fully responsive, highly interactive UX interfaces scored at a 95% accessibility ease-of-use rating.</p>
                         <div class="pj-links">
                             <a href="#" class="view-btn">Figma</a>
                         </div>
@@ -320,7 +354,7 @@
     <!-- Lightbox Modal -->
     <div id="cert-modal" class="modal">
         <span class="close-modal">&times;</span>
-        <img class="modal-content" id="full-cert-img">
+        <img class="modal-content" id="full-cert-img" alt="Enlarged Certificate View">
     </div>
 
     <!-- Contact Section -->
@@ -335,6 +369,16 @@
                     <div class="form-row">
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <!-- ADDED INQUIRY TYPE DROP DOWN -->
+                    <div class="form-row" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+                        <select name="inquiry_type" required>
+                            <option value="" disabled selected hidden>Choose Inquiry Type</option>
+                            <option value="QA Role">QA Analyst Position</option>
+                            <option value="Data Role">Data Analyst Position</option>
+                            <option value="Collaboration">Project Collaboration</option>
+                            <option value="General">General Inquiry</option>
+                        </select>
                     </div>
                     <textarea name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
                     <button type="submit" id="submit-btn" class="btn primary">Send Message <i class="fas fa-paper-plane"></i></button>
@@ -353,15 +397,15 @@
             </div>
             <!-- UPDATED SOCIAL LINKS -->
             <div class="foot-links">
-                <a href="https://linkedin.com/in/ruel-machete-337049395" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/ruelmachete" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.facebook.com/ruel.machete.1/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://linkedin.com/in/ruel-machete-337049395" target="_blank" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/ruelmachete" target="_blank" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/ruel.machete.1/" target="_blank" aria-label="Facebook profile"><i class="fab fa-facebook"></i></a>
             </div>
             <p class="copy">&copy; 2026 All Rights Reserved.</p>
         </div>
     </footer>
 
-    <button id="toTop"><i class="fas fa-arrow-up"></i></button>
+    <button id="toTop" aria-label="Scroll back to top"><i class="fas fa-arrow-up"></i></button>
 
     <script src="js/script.js"></script>
 </body>

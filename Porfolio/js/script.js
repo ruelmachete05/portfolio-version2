@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => loader.style.display = 'none', 500);
     });
 
-    // 2. Typing Effect
+    // 2. Typing Effect (Updated roles for graduate status)
     const typingElement = document.querySelector('.typing');
-    const roles = ["QA Analyst", "Data Analyst", "BSIT Student", "Magna Cum Laude Candidate"];
+    const roles = ["QA Analyst", "Data Analyst", "BSIT Graduate", "Magna Cum Laude Graduate"];
     let roleIdx = 0, charIdx = 0, isDeleting = false;
 
     function type() {
@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
 
     menuToggle.onclick = () => {
-        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
         const icon = menuToggle.querySelector('i');
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.onclick = () => {
             navLinks.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
             const icon = menuToggle.querySelector('i');
             icon.classList.add('fa-bars');
             icon.classList.remove('fa-times');
@@ -54,11 +56,40 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('toTop').style.display = window.scrollY > 800 ? 'flex' : 'none';
     };
 
-    // 4. Scroll Reveal
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // 4. Scroll Reveal & Scrollspy (Active Navigation Highlighting)
+    const sections = document.querySelectorAll('header, section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: "-15% 0px -65% 0px"
+    };
+
+    const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            // Standard Reveal Logic
+            if (entry.isIntersecting && entry.target.classList.contains('reveal')) {
+                entry.target.classList.add('active');
+            }
+            
+            // Scrollspy Active Navigation Assignment
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navItems.forEach(item => {
+                    const href = item.getAttribute('href');
+                    if (href === `#${id}`) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observe reveals and sections
+    document.querySelectorAll('.reveal').forEach(el => sectionObserver.observe(el));
+    sections.forEach(sec => sectionObserver.observe(sec));
 
     // 5. Gallery Carousel Logic
     const track = document.querySelector('.carousel-track');
@@ -112,8 +143,16 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
-    closeModal.onclick = () => modal.style.display = 'none';
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+    const closeLightbox = () => { modal.style.display = 'none'; };
+    closeModal.onclick = closeLightbox;
+    window.onclick = (e) => { if (e.target == modal) closeLightbox(); };
+
+    // Escape Key Support for Lightbox closing
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeLightbox();
+        }
+    });
 
     // 7. Scroll Top
     document.getElementById('toTop').onclick = () => window.scrollTo({top:0, behavior:'smooth'});
@@ -154,5 +193,26 @@ document.addEventListener('DOMContentLoaded', () => {
             status.textContent = "Communication error.";
             btn.disabled = false;
         });
+    });
+
+    // 9. PROJECT FILTERING LOGIC
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+        button.onclick = () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
     });
 });

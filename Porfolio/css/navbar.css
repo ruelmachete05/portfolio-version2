@@ -23,7 +23,7 @@
     text-decoration: none; color: var(--text-dim); font-size: 0.9rem; 
     font-weight: 600; transition: 0.3s; 
 }
-.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.nav-links a:hover, .nav-links a.active { color: var(--primary) !important; }
 .nav-cta { 
     background: rgba(0, 242, 254, 0.1); padding: 10px 24px !important; 
     border-radius: 50px; border: 1px solid var(--primary); color: var(--primary) !important;

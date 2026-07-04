@@ -85,3 +85,11 @@
     color: var(--primary);
     font-weight: bold;
 }
+
+/* RESPONSIVE TIMELINE COMPACTING FOR PHONES */
+@media (max-width: 480px) {
+    .timeline { padding-left: 20px; }
+    .timeline-item::before { left: -31px; }
+    .time-content { padding: 20px 15px; }
+    .time-content h3 { font-size: 1.25rem; }
+}
