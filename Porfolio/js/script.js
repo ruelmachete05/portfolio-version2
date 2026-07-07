@@ -1,10 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Preloader
-    window.addEventListener('load', () => {
-        const loader = document.getElementById('preloader');
-        loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 500);
-    });
+    // 1. Preloader with fallback to prevent visual freezing
+    const loader = document.getElementById('preloader');
+    const hideLoader = () => {
+        if (loader && loader.style.display !== 'none') {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    };
+
+    // Hide when page is fully loaded
+    window.addEventListener('load', hideLoader);
+
+    // Fallback: Force hide after 1.5 seconds if assets/images are slow to load
+    setTimeout(hideLoader, 1500);
 
     // 2. Typing Effect (Updated roles for graduate status)
     const typingElement = document.querySelector('.typing');
@@ -56,23 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('toTop').style.display = window.scrollY > 800 ? 'flex' : 'none';
     };
 
-    // 4. Scroll Reveal & Scrollspy (Active Navigation Highlighting)
+    // 4. Scrollspy (Active Navigation Highlighting) & Scroll Reveal
     const sections = document.querySelectorAll('header, section');
     const navItems = document.querySelectorAll('.nav-links a');
 
-    const observerOptions = {
+    // Scrollspy observer options (requires strict bounds to highlight correct section)
+    const scrollspyOptions = {
         threshold: 0.2,
         rootMargin: "-15% 0px -65% 0px"
     };
 
-    const sectionObserver = new IntersectionObserver(entries => {
+    const scrollspyObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            // Standard Reveal Logic
-            if (entry.isIntersecting && entry.target.classList.contains('reveal')) {
-                entry.target.classList.add('active');
-            }
-            
-            // Scrollspy Active Navigation Assignment
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
                 navItems.forEach(item => {
@@ -85,11 +90,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    }, observerOptions);
+    }, scrollspyOptions);
 
-    // Observe reveals and sections
-    document.querySelectorAll('.reveal').forEach(el => sectionObserver.observe(el));
-    sections.forEach(sec => sectionObserver.observe(sec));
+    sections.forEach(sec => scrollspyObserver.observe(sec));
+
+    // Separate Reveal Observer for faster and smoother animation triggers
+    const revealOptions = {
+        threshold: 0.05, // Animates as soon as 5% of the element is visible
+        rootMargin: "0px 0px -50px 0px" // Triggers slightly before rolling fully into viewport
+    };
+
+    const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target.classList.contains('reveal')) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target); // Stop observing once loaded to save CPU cycles
+            }
+        });
+    }, revealOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // 5. Gallery Carousel Logic
     const track = document.querySelector('.carousel-track');
