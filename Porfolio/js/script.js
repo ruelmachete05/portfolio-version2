@@ -154,22 +154,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = document.getElementById('full-cert-img');
     const closeModal = document.querySelector('.close-modal');
     const lightboxTriggers = document.querySelectorAll('.cert-item, .gallery-item');
+    const projectViewButtons = document.querySelectorAll('.project-view-btn');
 
+    // Smooth animation opening trigger
+    const openLightbox = (imgSrc) => {
+        modal.style.display = 'flex';
+        // Force reflow for transitions
+        void modal.offsetWidth;
+        modal.classList.add('open');
+        modalImg.src = imgSrc;
+    };
+
+    // Smooth animation closing sequence (reverse transition)
+    const closeLightbox = () => {
+        modal.classList.remove('open');
+        setTimeout(() => {
+            if (!modal.classList.contains('open')) {
+                modal.style.display = 'none';
+            }
+        }, 400); // Syncs with 0.4s modal transition timing
+    };
+
+    // Set interactive styling and events for traditional items
     lightboxTriggers.forEach(item => {
         item.style.cursor = 'pointer';
         item.onclick = () => {
-            modal.style.display = 'flex';
-            modalImg.src = item.dataset.img;
+            openLightbox(item.dataset.img);
         };
     });
 
-    const closeLightbox = () => { modal.style.display = 'none'; };
+    // Handle project view triggers explicitly
+    projectViewButtons.forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+            openLightbox(btn.dataset.img);
+        };
+    });
+
     closeModal.onclick = closeLightbox;
     window.onclick = (e) => { if (e.target == modal) closeLightbox(); };
 
     // Escape Key Support for Lightbox closing
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
+        if (e.key === 'Escape' && modal.classList.contains('open')) {
             closeLightbox();
         }
     });
